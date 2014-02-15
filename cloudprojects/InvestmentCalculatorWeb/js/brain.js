@@ -21,6 +21,7 @@ function startProcessing(){
         $(this).closest("tr").find('#year').css({"color":"red","border":"2px solid red"});
         var year = $(this).closest("tr").find('#year').val(); 
         alert(year);
+        alert(year);
     });
     
     /*$('#year').change(function(){
