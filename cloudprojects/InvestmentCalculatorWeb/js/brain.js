@@ -19,7 +19,7 @@ function startProcessing(){
         alert(this.value); 
         //alert($(this).closest("tr").find('#year').value); /*.find("#year").value);*/
         $(this).closest("tr").find('#year').css({"color":"red","border":"2px solid red"});
-        var year = $(this).closest("tr").find('#year').val();
+        var year = $(this).closest("tr").find('#year').val(); 
         alert(year);
     });
     
