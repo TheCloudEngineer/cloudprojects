@@ -62,11 +62,22 @@ function startProcessing(){
 }
 
 function calculateprofitPercent(){
-	var currentTotal = $('#currentTotal').val();
-	var sellingPrice = $('#salePrice').val();
-	var bankOutStanding = $('#principleOutStanding').val();
-	var profitPercent = (sellingPrice - (currentTotal+bankOutStanding))/(currentTotal+bankOutStanding)*100;
-	$('#profitPercent').val(profitPercent);
+	var currentTotal = Number($("#currentTotal").val());
+	var investedTotal = Number($("#investedTotal").val());
+	//alert('Investment '+investedTotal);
+	var sellingPrice = Number($('#salePrice').val());
+	//alert('Sales '+sellingPrice);
+	var bankOutStanding = Number($('#principleOutStanding').val());
+	//alert('Bank '+bankOutStanding);
+	var costPrice = investedTotal+bankOutStanding;
+	//alert('cost'+costPrice);
+	var profitPercent = ((sellingPrice - costPrice)/costPrice)*100;
+	var oppCostPercent = ((currentTotal - investedTotal)/investedTotal)*100;
+	//alert('real profit '+profitPercent);
+	$("#profitPercent").val(profitPercent);
+	//alert('simple return'+oppCostPercent);
+	$("#oppPercent").val(oppCostPercent);
+	
 	
 }
 
@@ -96,6 +107,12 @@ function calculateTotal(){
 			    if (!isNaN(value)) sum += value;
 			});
 	$(document).find("#currentTotal").val(sum);
+	var investedTotal = 0;
+	$(".totalInvest").each(function (){
+		var value = Number($(this).val());
+	    if (!isNaN(value)) investedTotal += value;
+	});
+	$(document).find("#investedTotal").val(investedTotal);
 }
 
 function calcuatePresentValue(invAmount, invYear){

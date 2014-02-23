@@ -43,7 +43,7 @@
                 <tr id="repeater">
                     <td>
                         <div class="input-group">
-                            <input type="text" id="amount" name="amountTxt" class="form-control" value="0">
+                            <input type="text" id="amount" name="amountTxt" class="form-control totalInvest" value="0">
                             <span class="input-group-addon">.00</span>
                         </div>
                     </td>
@@ -65,13 +65,14 @@
                 
                 
             </table>
-            <h1 class="alert alert-warning">See Results</h1>
+            <h1 class="alert alert-warning">Summary</h1>
              <table>
              	<tr>
                     <th>Sale Price</th>
                     <th>Principal Outstanding</th>
+                    <th>Total Investment</th>
                     <th>Total Current Value</th>
-                    <th>Profit Percent</th>
+                    
                 </tr>
                 <tr>
                 	<td>
@@ -86,6 +87,12 @@
                             <span class="input-group-addon">.00</span>
                         </div>
                        </td>
+                       <td>  
+                        <div class="input-group">
+                            <input type="text" id="investedTotal" readonly name="amountTxt" class="form-control" value="0">
+                            <span class="input-group-addon">%</span>
+                        </div>
+                		</td>
                        
                       <td>
                       	<div class="input-group">
@@ -93,12 +100,28 @@
                             <span class="input-group-addon">.00</span>
                         </div>
                       </td>
-                      <td>  
+                      
+                </tr>
+               </table>
+               <h1 class="alert alert-warning">Profit/Loss</h1>
+               <table>
+               	<tr>
+               		<td>Real Estate Return</td>
+               		<td>Savings Return</td>
+               	</tr>
+               	<tr>
+	               	<td>  
                         <div class="input-group">
                             <input type="text" id="profitPercent" readonly name="amountTxt" class="form-control" value="0">
                             <span class="input-group-addon">%</span>
                         </div>
-                		</td>
+	                </td>
+	                <td>  
+                        <div class="input-group">
+                            <input type="text" id="oppPercent" readonly name="amountTxt" class="form-control" value="0">
+                            <span class="input-group-addon">%</span>
+                        </div>
+	                </td>
                 </tr>
                </table>
         </div>
