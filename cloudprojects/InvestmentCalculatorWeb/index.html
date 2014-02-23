@@ -43,26 +43,64 @@
                 <tr id="repeater">
                     <td>
                         <div class="input-group">
-                            <input type="text" id="amount" name="amountTxt" class="form-control" value="100">
+                            <input type="text" id="amount" name="amountTxt" class="form-control" value="0">
                             <span class="input-group-addon">.00</span>
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input type="number" id="year" class="form-control" value="2009">
+                            <input type="number" id="year" class="form-control" value="0">
                             <span class="input-group-addon">.00</span>
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input type="number" id="currentAmount" readonly class="form-control" value="00">
+                            <input type="number" id="currentAmount" readonly class="form-control currentValue" value="00">
                             <span class="input-group-addon">.00</span>
                         </div>
                     </td>
                     
                 </tr>
+               
+                
                 
             </table>
+            <h1 class="alert alert-warning">See Results</h1>
+             <table>
+             	<tr>
+                    <th>Sale Price</th>
+                    <th>Principal Outstanding</th>
+                    <th>Total Current Value</th>
+                    <th>Profit Percent</th>
+                </tr>
+                <tr>
+                	<td>
+                		<div class="input-group">
+                            <input type="text" id="salePrice" name="amountTxt" class="form-control" value="0">
+                            <span class="input-group-addon">.00</span>
+                        </div>
+                       </td>
+                       <td>
+                		<div class="input-group">
+                            <input type="text" id="principleOutStanding" name="amountTxt" class="form-control" value="0">
+                            <span class="input-group-addon">.00</span>
+                        </div>
+                       </td>
+                       
+                      <td>
+                      	<div class="input-group">
+                            <input type="text" id="currentTotal" readonly name="amountTxt" class="form-control" value="0">
+                            <span class="input-group-addon">.00</span>
+                        </div>
+                      </td>
+                      <td>  
+                        <div class="input-group">
+                            <input type="text" id="profitPercent" readonly name="amountTxt" class="form-control" value="0">
+                            <span class="input-group-addon">%</span>
+                        </div>
+                		</td>
+                </tr>
+               </table>
         </div>
         <p class="tagline">
         

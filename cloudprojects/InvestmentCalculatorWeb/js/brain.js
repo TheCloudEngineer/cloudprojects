@@ -31,12 +31,20 @@ interestRateArray[10]=0.06;//2004
     
 function startProcessing(){
 	$('#year').change(calculateNPVForCurrentRow);
+	$('#amount').change(calculateNPVForCurrentRow);
+	$('#currentTotal').change(calculateprofitPercent);
+	$('#salePrice').change(calculateprofitPercent);
+	$('#principleOutStanding').change(calculateprofitPercent);
     $('#add').click(function(){
         //alert($(this).parentsUntil("tr"));
         //alert($("#repeater").parentsUntil("table"));
     	var nodeToAdd = $("#repeater").clone();
     	//alert(nodeToAdd.children('#amount').attr('name'));
+    	nodeToAdd.find('#year').val(0);
+    	nodeToAdd.find('#amount').val(0);
+    	nodeToAdd.find('#currentAmount').val(0);
     	nodeToAdd.find('#year').change(calculateNPVForCurrentRow);
+    	nodeToAdd.find('#amount').change(calculateNPVForCurrentRow);
        $("#workTable").append(nodeToAdd);
        $("#workTable").last.children();
        //$('#amount')
@@ -53,17 +61,41 @@ function startProcessing(){
    
 }
 
+function calculateprofitPercent(){
+	var currentTotal = $('#currentTotal').val();
+	var sellingPrice = $('#salePrice').val();
+	var bankOutStanding = $('#principleOutStanding').val();
+	var profitPercent = (sellingPrice - (currentTotal+bankOutStanding))/(currentTotal+bankOutStanding)*100;
+	$('#profitPercent').val(profitPercent);
+	
+}
+
 function calculateNPVForCurrentRow(){
 	
-	alert(this.value); 
+	//alert(this.value); 
     //alert($(this).closest("tr").find('#year').value); /*.find("#year").value);*/
     //$(this).closest("tr").find('#year').css({"color":"red","border":"2px solid red"});
     var investedYear = $(this).closest("tr").find('#year').val();
     var investedAmount = $(this).closest("tr").find("#amount").val();
-    alert(investedAmount);
+    //alert(investedAmount);
 	var presentValue = calcuatePresentValue(investedAmount, investedYear);
 	$(this).closest("tr").find("#currentAmount").val(presentValue) ;
-	alert(presentValue);
+	calculateTotal();
+	//alert(presentValue);
+}
+
+function calculateTotal(){
+	
+	//var summands = $(document).find("#currentAmount");
+	//alert(summands);
+	var sum = 0;
+	$(".currentValue").each(function ()
+			{
+			    //alert('hello'+$(this).val());
+				var value = Number($(this).val());
+			    if (!isNaN(value)) sum += value;
+			});
+	$(document).find("#currentTotal").val(sum);
 }
 
 function calcuatePresentValue(invAmount, invYear){
