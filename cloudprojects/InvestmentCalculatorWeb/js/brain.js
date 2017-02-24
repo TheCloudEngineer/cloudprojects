@@ -62,6 +62,7 @@ function startProcessing(){
 }
 
 function calculateprofitPercent(){
+	//checking git feature
 	var currentTotal = Number($("#currentTotal").val());
 	var investedTotal = Number($("#investedTotal").val());
 	//alert('Investment '+investedTotal);
